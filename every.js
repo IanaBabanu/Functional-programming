@@ -1,24 +1,23 @@
-const array = [1, 30, 39, 29, 10, 13];
 
-const every = (condition) => {
+const every = (array, condition) => {
 
     return array.reduce((accumulator, currentEl) => {
 
          let result = condition(currentEl);
+         let temp = accumulator;       
          
          if(!result) {
-             accumulator = false;
+            temp = false;
          }
-     
-         return accumulator;
+         return temp;
  
     }, true);
 }
 
-console.log(every( (currentValue) => currentValue < 40) );
+console.log(every([1, 30, 39, 29, 10, 13], (currentValue) => currentValue < 40) );
 // expected output: true
 
-console.log(every( (currentValue) => currentValue > 40) );
+console.log(every([1, 30, 39, 29, 10, 13], (currentValue) => currentValue > 40) );
 // expected output: false
 
 

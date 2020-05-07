@@ -1,25 +1,25 @@
-const users = [
-    {id: 1, name: "John"},
-    {id: 2, name: "Pete"},
-    {id: 3, name: "Mary"}
-  ];
 
-const filter = (condition) => {
+const filter = (array, condition) => {
 
-    return users.reduce((newArray, currentEl) => {
+    return array.reduce((newArray, currentEl) => {
 
          let result = condition(currentEl);
-         
+         let tempArray = [...newArray];
+
          if(result) {
-             newArray.push(currentEl);
+             tempArray.push(currentEl);
          }
      
-         return newArray;
+         return tempArray;
  
     }, []);
 }
 
-console.log(filter( (item) => item.id < 3) );
+console.log(filter([
+    {id: 1, name: "John"},
+    {id: 2, name: "Pete"},
+    {id: 3, name: "Mary"}
+  ], (item) => item.id < 3) );
 
 
  

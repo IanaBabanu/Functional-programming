@@ -1,18 +1,19 @@
-const contcat = (array, newEl) => {
+const concat = (array, newEl) => {
 
     return array.reduce((newArray, currentEl, index) => {
 
-         newArray[index] = currentEl;
+        let otherArray = [...newArray, currentEl];
 
          if(index == array.length - 1) {
-            newArray[index + 1] = newEl;
+            otherArray = [...otherArray, newEl]; 
          }
 
-         return newArray;
+         return otherArray;
  
     }, []);
 }
 
-console.log(contcat([1, 2, 3, 4], 0));
+console.log(concat([1, 2, 3, 4], 0));
+
 
  

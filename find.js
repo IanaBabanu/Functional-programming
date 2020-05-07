@@ -1,31 +1,30 @@
-const users = [
-    {id: 1, name: "John"},
-    {id: 2, name: "Pete"},
-    {id: 3, name: "Mary"},
-    {id: 4, name: "John"},
 
-  ];
-
-const find = (condition) => {
+const find = (array, condition) => {
     let flag = true;
 
-    return users.reduce((accumulator, currentEl) => {
+    return array.reduce((accumulator, currentEl) => {
 
          let result = condition(currentEl);
+         let temp = {...accumulator};
 
          if(result && flag) {
 
-            accumulator = currentEl;
+          temp = currentEl;
             flag = false;
 
          }
 
-         return accumulator;
+         return temp;
       
     }, []);
 }
 
-console.log(find( (item) => item.name == "John") );
+console.log(find( [
+  {id: 1, name: "John"},
+  {id: 2, name: "Pete"},
+  {id: 3, name: "Mary"},
+  {id: 4, name: "John"},
+] ,(item) => item.name == "John") );
 
 
  
