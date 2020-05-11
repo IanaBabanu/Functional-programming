@@ -1,16 +1,15 @@
 
 const filter = (array, condition) => {
 
-    return array.reduce((newArray, currentEl) => {
+    return array.reduce((accumulator, currentEl) => {
 
          let result = condition(currentEl);
-         let tempArray = [...newArray];
 
          if(result) {
-             tempArray.push(currentEl);
+             return [...accumulator, currentEl];
          }
      
-         return tempArray;
+         return accumulator;
  
     }, []);
 }

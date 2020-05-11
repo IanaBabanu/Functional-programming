@@ -5,16 +5,14 @@ const find = (array, condition) => {
     return array.reduce((accumulator, currentEl) => {
 
          let result = condition(currentEl);
-         let temp = {...accumulator};
 
          if(result && flag) {
 
-          temp = currentEl;
-            flag = false;
-
+          flag = false;
+          return accumulator = currentEl;
          }
 
-         return temp;
+         return accumulator;
       
     }, []);
 }

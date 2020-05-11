@@ -4,14 +4,13 @@ const every = (array, condition) => {
     return array.reduce((accumulator, currentEl) => {
 
          let result = condition(currentEl);
-         let temp = accumulator;       
          
-         if(!result) {
-            temp = false;
+         if(result) {
+            return true;
          }
-         return temp;
+         return accumulator;
  
-    }, true);
+    }, false);
 }
 
 console.log(every([1, 30, 39, 29, 10, 13], (currentValue) => currentValue < 40) );
