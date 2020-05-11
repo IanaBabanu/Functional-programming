@@ -9,7 +9,7 @@ const find = (array, condition) => {
          if(result && flag) {
 
           flag = false;
-          return accumulator = currentEl;
+          return currentEl;
          }
 
          return accumulator;
