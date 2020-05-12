@@ -2,10 +2,8 @@
 const every = (array, condition) => {
 
     return array.reduce((accumulator, currentEl) => {
-
-         let result = condition(currentEl);
          
-         if(result) {
+         if(condition(currentEl)) {
             return true;
          }
          return accumulator;
